@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste contacts
+
+
+{% endblock %}
+
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col"><a href="{{path('contacts')}}">ID</a></th>
+      <th scope="col" ><a href="{{path('contactsByFirstName')}}">Prenom</a></th>
+      <th scope="col" ><a href="{{path('contactsByName')}}">Nom</a></th>
+      <th scope="col" ><a href="{{path('contactsByPhone')}}">Numéro tel</a></th>
+      <th scope="col"><a href="{{path('contactsByJob')}}">Job</a></th>
+      <th scope="col">Entreprise</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for contact in contactsByCompany %}
+    <tr class="table-active">
+    
+      <td>{{contact.id}}</td>
+      <td>{{contact.prenom}}</td>
+      <td>{{contact.nom}}</td>
+      <td>{{contact.phoneNum}}</td>
+      <td>{{contact.job}}</td>
+      <td>{{contact.companyName}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}
